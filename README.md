@@ -43,6 +43,30 @@ Reach out to the [community](https://mbientlab.com/community/) if you encounter 
 
 ## Getting Started
 
+### Emscripten
+
+Use bluetooth tools, e.g. `brew install blueutil`
+
+1. Install emsdk
+```bash
+cd ~/repos
+git clone https://github.com/emscripten-core/emsdk.git
+cd emsdk
+./emsdk install latest
+./emsdk activate latest
+source ./emsdk_env.sh
+```
+
+2. Configure mbientlab C++ SDK for emscripten
+```bash
+cd ~/repos/mbientlab/MetaWear-SDK-Cpp
+emcmake cmake .
+emmake make
+emcc dist/x64_86/Release/libmetawear.a -o dist/wasm.html
+```
+
+Now you have a js, wasm, and html files.
+
 ### Installation
 Building the project has been tested on Linux Debian with Clang 15.  
 
