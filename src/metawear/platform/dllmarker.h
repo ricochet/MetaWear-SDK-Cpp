@@ -5,6 +5,8 @@
  */
 #pragma once
 
+#include <emscripten.h>
+
 #if defined _WIN32 || defined __CYGWIN__
 #define METAWEAR_HELPER_DLL_IMPORT __declspec(dllimport)
 #define METAWEAR_HELPER_DLL_EXPORT __declspec(dllexport)
@@ -31,7 +33,7 @@
 /** Indicates the function is only to be used by the API */
 #define METAWEAR_LOCAL METAWEAR_HELPER_DLL_LOCAL
 #else // METAWEAR_DLL is not defined: this means METAWEAR is a static lib.
-#define METAWEAR_API
+#define METAWEAR_API EMSCRIPTEN_KEEPALIVE
 #define METAWEAR_LOCAL
 #endif // METAWEAR_DLL
 

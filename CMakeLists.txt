@@ -80,7 +80,7 @@ add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
 # Compiler flags
 #----------------
 
-set(COMMON_FLAGS "-std=c++11 -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Wall -Werror -I${SOURCE_DIR} -DMETAWEAR_DLL -DMETAWEAR_DLL_EXPORTS ${OPT_FLAGS}")
+set(COMMON_FLAGS "-std=c++11 -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Wall -Werror -I${SOURCE_DIR} ${OPT_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMMON_FLAGS}")
 set(CMAKE_C_FLAGS ${COMMON_FLAGS})
 

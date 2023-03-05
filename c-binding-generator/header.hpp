@@ -26,7 +26,7 @@
 /** Indicates the function is only to be used by the API */
 #define METAWEAR_LOCAL METAWEAR_HELPER_DLL_LOCAL
 #else // METAWEAR_DLL is not defined: this means METAWEAR is a static lib.
-#define METAWEAR_API
+#define METAWEAR_API EMSCRIPTEN_KEEPALIVE
 #define METAWEAR_LOCAL
 #endif // METAWEAR_DLL
 

@@ -62,7 +62,11 @@ source ./emsdk_env.sh
 cd ~/repos/mbientlab/MetaWear-SDK-Cpp
 emcmake cmake .
 emmake make
-emcc dist/x64_86/Release/libmetawear.a -o dist/wasm.html
+EMCC_DEBUG=1 emcc dist/x64_86/Release/libmetawear.a -o dist/wasm.html -s EXPORTED_FUNCTIONS=@api.txt
+
+# if you want to check which functions are exported:
+wasm-tools parse dist/wasm.wasm -t -o dist/wasm.wat
+code dist/wasm.wat
 ```
 
 Now you have a js, wasm, and html files.
