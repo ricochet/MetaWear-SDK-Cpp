@@ -62,7 +62,10 @@ source ./emsdk_env.sh
 cd ~/repos/mbientlab/MetaWear-SDK-Cpp
 emcmake cmake .
 emmake make
-EMCC_DEBUG=1 emcc dist/x64_86/Release/libmetawear.a -o dist/wasm.html -s EXPORTED_FUNCTIONS=@api.txt
+EMCC_DEBUG=1 emcc dist/x64_86/Release/libmetawear.a -s EXPORT_ES6=1 -s MODULARIZE=1 -s EXPORTED_FUNCTIONS=@api.txt -s EXPORT_NAME=wambient -o dist/wambient.mjs
+
+# copy over to static assets in vue.js app
+cp dist/wambient.* ~/repos/ricochet/wambient/packages/renderer/assets/
 
 # if you want to check which functions are exported:
 wasm-tools parse dist/wasm.wasm -t -o dist/wasm.wat
